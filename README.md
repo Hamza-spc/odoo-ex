@@ -1,6 +1,6 @@
 # odoo-ex — Odoo 17 Learning Project
 
-Local Odoo 17 dev environment for learning ERP/CRM (PFE prep).
+Local Odoo 17 dev environment for learning ERP/CRM.
 
 ## Prerequisites
 
