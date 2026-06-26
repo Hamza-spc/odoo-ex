@@ -53,5 +53,12 @@ docker compose restart odoo   # after adding a new module
 ## Learning path
 
 1. Phase 1–2: ERP concepts + Odoo Online trial
-2. Phase 3: Custom modules in `addons/`
+2. Phase 3: Custom modules in `addons/` — see `restaurant_menu`
 3. Phase 4: Portfolio mini-project
+
+## Install a custom module
+
+1. Open **Apps** → top-right **⋮** → **Update Apps List** → Update
+2. Remove the **Apps** filter in search, type `Restaurant Menu`
+3. Click **Install**
+4. Open **Restaurant Menu → Menu Items** and create dishes
