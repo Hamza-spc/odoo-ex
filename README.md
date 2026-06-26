@@ -16,9 +16,21 @@ Open **http://localhost:8069**
 
 | Field | Value |
 |-------|-------|
-| Master password | `admin` |
+| **Master password** | `odoo123` |
 | Database name | `odoo_dev` (your choice) |
 | Email / Password | your login |
+
+> The master password is **not** your Odoo login password. It is only used on the database manager screen (create / delete database).
+
+### Master password "Access Denied"?
+
+1. Use exactly: `odoo123` (defined in `config/odoo.conf`).
+2. If it still fails, reset Docker volumes and start fresh:
+
+```bash
+docker compose down -v
+docker compose up -d
+```
 
 ## Project layout
 
