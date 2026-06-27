@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- LIST VIEW: table of all dishes -->
+    <record id="view_menu_item_tree" model="ir.ui.view">
+        <field name="name">restaurant.menu.item.tree</field>
+        <field name="model">restaurant.menu.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- FORM VIEW: one dish, add/edit -->
+    <record id="view_menu_item_form" model="ir.ui.view">
+        <field name="name">restaurant.menu.item.form</field>
+        <field name="model">restaurant.menu.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="name"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ACTION: opens the list (and form when you click a row) -->
+    <record id="action_menu_item" model="ir.actions.act_window">
+        <field name="name">Menu Items</field>
+        <field name="res_model">restaurant.menu.item</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- MENU: clickable entry in the top bar -->
+    <menuitem id="menu_root" name="Restaurant Menu"/>
+    <menuitem id="menu_items" name="Menu Items" parent="menu_root" action="action_menu_item"/>
+
+</odoo>
