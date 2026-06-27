@@ -17,3 +17,11 @@ class RestaurantMenuItem(models.Model):
         string='Category',
         default='main',
     )
+    supplier_id = fields.Many2one(
+        comodel_name='res.partner',
+        string='Supplier',
+    )
+    tag_ids = fields.Many2many(
+        comodel_name='restaurant.menu.tag',
+        string='Tags',
+    )

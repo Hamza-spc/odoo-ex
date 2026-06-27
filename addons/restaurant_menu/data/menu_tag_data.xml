@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="tag_spicy" model="restaurant.menu.tag">
+        <field name="name">Spicy</field>
+    </record>
+    <record id="tag_vegan" model="restaurant.menu.tag">
+        <field name="name">Vegan</field>
+    </record>
+    <record id="tag_halal" model="restaurant.menu.tag">
+        <field name="name">Halal</field>
+    </record>
+
+</odoo>
