@@ -17,6 +17,6 @@ docker compose down     # stop
 
 - [x] Phase 1–2: ERP concepts + Odoo Online workflow
 - [x] Local Odoo running (`odoo_dev`)
-- [ ] **Step 1:** Module manifest (`__manifest__.py`) ← we are here
-- [ ] Step 2: ...
+- [x] Step 1: Module manifest (`__manifest__.py`)
+- [ ] **Step 2:** Package entry point (`__init__.py`) ← we are here
 - [ ] Step 3: ...
