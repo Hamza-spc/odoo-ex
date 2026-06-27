@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Extend quotation / sales order lines: show linked menu dish info -->
+    <record id="view_order_form_menu" model="ir.ui.view">
+        <field name="name">sale.order.form.menu</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']//field[@name='product_id']" position="after">
+                <field name="menu_item_id" optional="hide"/>
+                <field name="menu_category" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
