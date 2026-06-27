@@ -1,6 +1,6 @@
-# odoo-ex — Learning Odoo Development (step by step)
+# odoo-restaurant 
 
-Local Odoo 17 environment. We add **one concept at a time**.
+Local Odoo 17 environment.
 
 ## Environment (already set up)
 
