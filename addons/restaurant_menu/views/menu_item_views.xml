@@ -10,6 +10,8 @@
                 <field name="name"/>
                 <field name="category"/>
                 <field name="price"/>
+                <field name="cost"/>
+                <field name="margin"/>
                 <field name="supplier_id"/>
             </tree>
         </field>
@@ -33,6 +35,8 @@
                         <field name="name"/>
                         <field name="category"/>
                         <field name="price"/>
+                        <field name="cost"/>
+                        <field name="margin"/>
                         <field name="supplier_id"/>
                     </group>
                     <group>
