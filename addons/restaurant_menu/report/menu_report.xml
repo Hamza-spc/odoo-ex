@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- PDF report action -->
+    <record id="action_report_restaurant_menu" model="ir.actions.report">
+        <field name="name">Restaurant Menu</field>
+        <field name="model">restaurant.menu.item</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">restaurant_menu.report_menu_document</field>
+        <field name="report_file">restaurant_menu.report_menu_document</field>
+        <field name="binding_model_id" ref="model_restaurant_menu_item"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Server action: print ALL dishes (no selection needed) -->
+    <record id="action_server_print_full_menu" model="ir.actions.server">
+        <field name="name">Print Full Menu PDF</field>
+        <field name="model_id" ref="model_restaurant_menu_item"/>
+        <field name="state">code</field>
+        <field name="code">
+records = env['restaurant.menu.item'].search([])
+action = env.ref('restaurant_menu.action_report_restaurant_menu').report_action(records)
+        </field>
+    </record>
+
+    <menuitem id="menu_print_full_menu"
+              name="Print Menu PDF"
+              parent="menu_root"
+              action="action_server_print_full_menu"
+              sequence="30"/>
+
+    <!-- QWeb template for the PDF -->
+    <template id="report_menu_document">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Restaurant Menu</h2>
+                    <table class="table table-sm o_main_table">
+                        <thead>
+                            <tr>
+                                <th>Dish</th>
+                                <th>Category</th>
+                                <th>Price (DH)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="dish">
+                                <tr>
+                                    <td><span t-field="dish.name"/></td>
+                                    <td><span t-field="dish.category"/></td>
+                                    <td><span t-field="dish.price"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
