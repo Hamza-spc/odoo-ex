@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="group_restaurant_waiter" model="res.groups">
+        <field name="name">Waiter (Drinks Only)</field>
+        <field name="category_id" ref="base.module_category_sales_sales"/>
+        <field name="comment">Can only see drink menu items.</field>
+    </record>
+
+</odoo>

@@ -1,5 +1,8 @@
 from odoo import api, fields, models
 from odoo.exceptions import UserError, ValidationError
+import logging
+
+_logger = logging.getLogger(__name__)
 
 
 class RestaurantMenuItem(models.Model):
@@ -79,3 +82,22 @@ class RestaurantMenuItem(models.Model):
         for dish in self:
             if dish.price <= 0:
                 raise ValidationError('Price must be greater than 0.')
+
+    @api.model
+    def cron_check_missing_products(self):
+        dishes = self.search([('product_id', '=', False)])
+        if dishes:
+            names = ', '.join(dishes.mapped('name'))
+            _logger.warning(
+                'Restaurant Menu: dishes without Sales product: %s', names
+            )
+
+    @api.model
+    def action_check_missing_products(self):
+        dishes = self.search([('product_id', '=', False)])
+        if dishes:
+            names = ', '.join(dishes.mapped('name'))
+            raise UserError(
+                'Dishes missing Sales product: %s' % names
+            )
+        raise UserError('All dishes have a Sales product.')
